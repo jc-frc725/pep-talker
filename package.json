@@ -1,0 +1,41 @@
+{
+  "name": "pep-talker",
+  "version": "1.0.0",
+  "description": "Use this application whenever someone/something asks you to give a pep-talk.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./server/index.js",
+    "start:prod": "node ./server/index.js",
+    "build-dev": "webpack -w --config ./webpack.config.js --mode development",
+    "build": "webpack -w --config ./webpack.config.js --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jc-frc725/pep-talker.git"
+  },
+  "author": "Justin Chow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jc-frc725/pep-talker/issues"
+  },
+  "homepage": "https://github.com/jc-frc725/pep-talker#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.16",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "@babel/preset-react": "^7.12.13",
+    "@webpack-cli/init": "^1.1.3",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "nodemon": "^2.0.7",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0"
+  }
+}

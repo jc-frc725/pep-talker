@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 
-const CurrentQuote = (props) => {
+const CurrentQuote = ({ current, readQuote, getQuote }) => {
 
   return (
     <div className="current-quote">
-      <h2>Main quote display here. Needs a read quote button, and get quote button.</h2>
+      <h2 className="main">{current.text}</h2>
+      <h3 className="main-author"> - {current.author}</h3>
+      <div>There should be a quote above here.</div>
+
       <label>I need something.</label>
-      <div className="main">quote here</div>
+      <button onClick={readQuote}>Read</button>
+      <button onClick={getQuote}>Get random quote</button>
     </div>
   )
 }

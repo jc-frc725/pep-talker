@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const QuoteList = ({quotes}) => {
+const QuoteList = ({ quotes }) => {
   return (
     <div className="quotes-list">
       <ul>

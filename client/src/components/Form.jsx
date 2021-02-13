@@ -8,6 +8,7 @@ const Form = (props) => {
       <form>
         <input type="text" value={entry} onChange={(event) => setEntry(event.target.value)}></input>
       </form>
+      <button>Submit</button>
     </div>
   )
 }

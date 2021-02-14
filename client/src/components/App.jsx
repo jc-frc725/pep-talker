@@ -15,25 +15,30 @@ const App = (props) => {
 
   const readQuote = () => {
     console.log('Quote will be read.');
+    // IBM text-to-speech here
   }
 
-  const randomQuote = () => {
+  const getRandomQuote = () => {
     console.log('Getting random quote');
     setCurrent(quotes[Math.floor(Math.random() * quotes.length)]);
+  }
+
+  const setCurrentQuote = (text, author) => {
+    setCurrent({text, author});
   }
 
   return (
     <div>
       <h1>Pep-talker</h1>
       <br></br>
-      <CurrentQuote current={current} readQuote={readQuote} getQuote={randomQuote}/>
+      <CurrentQuote current={current} readQuote={readQuote} getQuote={getRandomQuote}/>
       <br></br>
       <h2>Type in new quotes here. Needs a form bar + submit button.</h2>
       <Form />
       <h3>List of quotes over here.</h3>
-      <QuoteList quotes={quotes}/>
+      <QuoteList quotes={quotes} setCurrentQuote={setCurrentQuote}/>
     </div>
-  )
+  );
 }
 
 export default App;

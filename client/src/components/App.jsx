@@ -2,16 +2,20 @@ import React, { useEffect, useState } from 'react';
 import Form from './Form';
 import QuoteList from './QuoteList';
 import CurrentQuote from './CurrentQuote';
-
-import sampleQuotes from '../../../database/sampleQuotes';
+import axios from 'axios';
 
 const App = (props) => {
   const [quotes, setQuotes] = useState([]);
   const [current, setCurrent] = useState({text: 'The hours of folly are measured by the clock; but of wisdom, no clock can measure.', author:'William Blake'});
 
   useEffect(() => {
-    setQuotes(sampleQuotes);
-  });
+    getQuotes();
+  }, []);
+
+  const getQuotes = () => {
+    axios.get('/api/pep-talker')
+      .then(({ data }) => setQuotes(data));
+  }
 
   const readQuote = () => {
     console.log('Quote will be read.');
@@ -19,8 +23,17 @@ const App = (props) => {
   }
 
   const getRandomQuote = () => {
-    console.log('Getting random quote');
     setCurrent(quotes[Math.floor(Math.random() * quotes.length)]);
+  }
+
+  const postNewQuote = (text, author) => {
+    axios.post('/api/pep-talker', { text, author })
+      .then(response => getQuotes());
+  }
+
+  const deleteQuote = (_id) => {
+    axios.delete(`/api/pep-talker/${_id}`)
+      .then(response => getQuotes());
   }
 
   const setCurrentQuote = (text, author) => {
@@ -34,9 +47,9 @@ const App = (props) => {
       <CurrentQuote current={current} readQuote={readQuote} getQuote={getRandomQuote}/>
       <br></br>
       <h2>Type in new quotes here. Needs a form bar + submit button.</h2>
-      <Form />
+      <Form postQuote={postNewQuote}/>
       <h3>List of quotes over here.</h3>
-      <QuoteList quotes={quotes} setCurrentQuote={setCurrentQuote}/>
+      <QuoteList quotes={quotes} setCurrentQuote={setCurrentQuote} deleteQuote={deleteQuote}/>
     </div>
   );
 }

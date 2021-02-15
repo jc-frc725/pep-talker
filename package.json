@@ -8,6 +8,7 @@
     "start:prod": "node ./server/index.js",
     "build-dev": "webpack -w --config ./webpack.config.js --mode development",
     "build": "webpack -w --config ./webpack.config.js --mode production",
+    "seed": "node ./database/seeding/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

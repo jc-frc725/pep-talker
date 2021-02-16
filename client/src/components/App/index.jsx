@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Form from './Form';
-import QuoteList from './QuoteList';
-import CurrentQuote from './CurrentQuote';
+import Form from '../Form/Form';
+import QuoteList from '../QuoteList';
+import CurrentQuote from '../CurrentQuote';
 import axios from 'axios';
+import styles from './App.module.css';
+
 
 const App = (props) => {
   const [quotes, setQuotes] = useState([]);
@@ -41,14 +43,12 @@ const App = (props) => {
   }
 
   return (
-    <div>
-      <h1>Pep-talker</h1>
+    <div className='pep-talk-main'>
+      <h1 className={`center-align ${styles.title}`}>Pep-talker</h1>
       <br></br>
       <CurrentQuote current={current} readQuote={readQuote} getQuote={getRandomQuote}/>
       <br></br>
-      <h2>Type in new quotes here. Needs a form bar + submit button.</h2>
       <Form postQuote={postNewQuote}/>
-      <h3>List of quotes over here.</h3>
       <QuoteList quotes={quotes} setCurrentQuote={setCurrentQuote} deleteQuote={deleteQuote}/>
     </div>
   );

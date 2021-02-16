@@ -11,10 +11,11 @@ const Form = ({ postQuote }) => {
   }
   // TODO: modal confirmation for valid submission
   // TODO: No empty fields
+  // TODO: limit chars
 
   return (
     <div className={`container input-field ${styles.main}`}>
-      <h5 className='center-align'>Make a new quote:</h5>
+      <h5 className='center-align'>Make a new pep-talk:</h5>
       <form onSubmit={handleSubmit}>
         <label>Text:</label>
         <input 
@@ -30,7 +31,7 @@ const Form = ({ postQuote }) => {
           value={author}
           onChange={(event) => setAuthor(event.target.value)}>
         </input>
-        <button className={`btn red accent-3`} type='submit'>Submit</button>
+        <button className={`btn purple accent-4`} type='submit'>Submit</button>
       </form>
     </div>
   )

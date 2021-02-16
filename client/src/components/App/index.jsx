@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import Form from '../Form/Form';
+import Form from '../Form';
 import QuoteList from '../QuoteList';
 import CurrentQuote from '../CurrentQuote';
 import axios from 'axios';
 import styles from './App.module.css';
 
-
 const App = (props) => {
   const [quotes, setQuotes] = useState([]);
   const [current, setCurrent] = useState({text: 'The hours of folly are measured by the clock; but of wisdom, no clock can measure.', author:'William Blake'});
+
+  // TODO: use disclaimer on bottom of page/footer
 
   useEffect(() => {
     getQuotes();
@@ -22,6 +23,7 @@ const App = (props) => {
   const readQuote = () => {
     console.log('Quote will be read.');
     // IBM text-to-speech here
+    // url: https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/22b07993-c125-413a-b7fc-efd644d4c021
   }
 
   const getRandomQuote = () => {

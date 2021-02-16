@@ -6,13 +6,13 @@ import styles from './QuoteList.module.css';
 const QuoteList = ({ quotes, setCurrentQuote, deleteQuote }) => {
 
   useEffect(() => {
-    var instances = M.Collapsible.init(document.querySelector('.collapsible'));
+    var instances = M.Sidenav.init(document.querySelector('.sidenav'));
   });
 
   return (
-    <div className="quotes-list">
-      <h3>List of quotes over here.</h3>
-      <ul>
+    <div className={`sidenav sidenav-fixed ${styles.list}`}>
+      <h4 className="center-align">Pep-talks:</h4>
+      <ul className="collection">
         {quotes.map((quote, idx) => 
           <Quote
             key={idx}

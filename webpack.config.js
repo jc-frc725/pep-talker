@@ -1,6 +1,7 @@
 const path = require('path');
 const PUBLIC_DIR = path.resolve(__dirname, 'client', 'public');
 const ENTRY_DIR = path.resolve(__dirname, 'client', 'src', 'index.jsx');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 
 module.exports = {
   entry: ENTRY_DIR,
@@ -8,6 +9,7 @@ module.exports = {
     path: PUBLIC_DIR,
     filename: 'bundle.js'
   },
+  plugins: [new NodePolyfillPlugin()],
   module: {
     rules: [
       {

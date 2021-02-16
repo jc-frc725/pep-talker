@@ -1,0 +1,25 @@
+.main {
+  width: 700px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.text {
+  font-size: 30px;
+}
+
+.author {
+  font-style: italic;
+  padding-right: 40px;
+}
+
+.buttons {
+  width: 500px;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.round {
+  border-radius: 25px;
+}

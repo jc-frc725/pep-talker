@@ -3,6 +3,10 @@ import styles from './CurrentQuote.module.css';
 
 const CurrentQuote = ({ current, readQuote, getQuote }) => {
 
+  const handleReadQuote = () => {
+    readQuote(current.text);
+  }
+
   return (
     <div>
       <div className={`container card-panel ${styles.main}`}>
@@ -10,7 +14,7 @@ const CurrentQuote = ({ current, readQuote, getQuote }) => {
         <h4 className={`right-align ${styles.author}`}> - {current.author}</h4>
       </div>
       <div className={`container ${styles.buttons}`}>
-        <a className={`btn-large ${styles.round}`} onClick={readQuote}>Read aloud</a>
+        <a className={`btn-large ${styles.round}`} onClick={handleReadQuote}>Read aloud</a>
         <a className={`btn-large ${styles.round}`} onClick={getQuote}>I need something.</a>
       </div>
     </div>

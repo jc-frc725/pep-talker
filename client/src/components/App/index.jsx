@@ -5,6 +5,8 @@ import CurrentQuote from '../CurrentQuote';
 import axios from 'axios';
 import styles from './App.module.css';
 
+import WatsonSpeech from 'watson-speech';
+
 const App = (props) => {
   const [quotes, setQuotes] = useState([]);
   const [current, setCurrent] = useState({text: 'The hours of folly are measured by the clock; but of wisdom, no clock can measure.', author:'William Blake'});
@@ -20,10 +22,22 @@ const App = (props) => {
       .then(({ data }) => setQuotes(data));
   }
 
-  const readQuote = () => {
+  // Request a token, then use returned audio
+  const readQuote = (toRead) => {
     console.log('Quote will be read.');
-    // IBM text-to-speech here
-    // url: https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/22b07993-c125-413a-b7fc-efd644d4c021
+    axios.get('/api/text-to-speech/token')
+      // response: { data: accessToken: ... }
+      .then(({ data }) => {
+        return data;
+      })
+      .then(accessToken => {
+        const audio = WatsonSpeech.TextToSpeech.synthesize(Object.assign(accessToken, {
+          text: toRead,
+        }));
+        audio.onerror = (error) => {
+          console.log('audio error: ', error);
+        }
+      });
   }
 
   const getRandomQuote = () => {

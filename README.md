@@ -3,9 +3,10 @@ Did someone mention a need for a rousing speech? Look no further. Browse a selec
 
 ## Usage
 ### Clicking on 'Speak to me' will read the current quote out loud. 
-<p align="center">
-    <img src="images\peptalk_demo.mp4">
- <p>
+
+<video width="320" height="240" controls>
+  <source src="images/peptalk_demo.mp4" type="video/mp4">
+</video>
 
 ## Installation
 1. Install dependencies.
@@ -20,13 +21,13 @@ Did someone mention a need for a rousing speech? Look no further. Browse a selec
 
    Copy `watson-speech.js` into the newly-created `public/speech` directory.
 
-   ![alt text](images\Code_3Xvyyv216y.png)
+   ![alt text](images/Code_3Xvyyv216y.png)
 
 5. Navigate to `node_modules/materialize-css/dist/css`.
 
    Copy `materialize.css` into the `public` directory.
 
-   ![alt text](images\Code_bg6zJO1s3O.png)
+   ![alt text](images/Code_bg6zJO1s3O.png)
 
 6. Obtain valid credentials to use IBM Cloud's Text-to-Speech services. (https://www.ibm.com/cloud/watson-text-to-speech)
 
@@ -38,7 +39,7 @@ Did someone mention a need for a rousing speech? Look no further. Browse a selec
    
    The `public` directory should look something like this: 
 
-   ![alt text](images\Code_WT6lTlx7Xx.png)
+   ![alt text](images/Code_WT6lTlx7Xx.png)
 
 10. Start server.
     

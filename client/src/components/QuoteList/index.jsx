@@ -10,9 +10,9 @@ const QuoteList = ({ quotes, setCurrentQuote, deleteQuote }) => {
   });
 
   return (
-    <div className={`sidenav sidenav-fixed ${styles.list}`}>
-      <h4 className="center-align">Pep-talks:</h4>
-      <ul className="collection">
+    <div className={`blue-grey darken-4 sidenav sidenav-fixed ${styles.list}`}>
+      <h4 className="blue-grey darken-4 cyan-text text-lighten-2 center-align">Pep-talks:</h4>
+      <ul className={`collection ${styles.items}`}>
         {quotes.map((quote, idx) => 
           <Quote
             key={idx}

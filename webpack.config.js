@@ -21,10 +21,15 @@ module.exports = {
           },
         ],
       },
-    {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader'],
-    }],
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.png/,
+        use: ['file-loader'],
+      }
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx'],

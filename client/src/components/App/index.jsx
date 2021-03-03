@@ -5,7 +5,7 @@ import CurrentQuote from '../CurrentQuote';
 import axios from 'axios';
 import styles from './App.module.css';
 
-import WatsonSpeech from 'watson-speech';
+import { TextToSpeech } from 'watson-speech';
 
 const App = (props) => {
   const [quotes, setQuotes] = useState([]);
@@ -24,14 +24,13 @@ const App = (props) => {
 
   // Request a token, then use returned audio
   const readQuote = (toRead) => {
-    console.log('Quote will be read.');
     axios.get('/api/text-to-speech/token')
       // response: { data: accessToken: ... }
       .then(({ data }) => {
         return data;
       })
       .then(accessToken => {
-        const audio = WatsonSpeech.TextToSpeech.synthesize(Object.assign(accessToken, {
+        const audio = TextToSpeech.synthesize(Object.assign(accessToken, {
           text: toRead,
         }));
         audio.onerror = (error) => {
@@ -60,7 +59,7 @@ const App = (props) => {
 
   return (
     <div className='pep-talk-main'>
-      <h1 className={`center-align ${styles.title}`}>Pep-talker</h1>
+      <h1 className={`center-align light-blue-text text-lighten-3 ${styles.title}`}>Pep-talker</h1>
       <br></br>
       <CurrentQuote current={current} readQuote={readQuote} getQuote={getRandomQuote}/>
       <br></br>

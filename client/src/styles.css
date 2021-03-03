@@ -1,0 +1,19 @@
+body {
+  background-color: green;
+  background-image: url(../public/img/mvp_background_image_blue_teal.png);
+  background-size: 250px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  animation: slide 12s infinite linear;
+}
+
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -250px 250px;
+  }
+}

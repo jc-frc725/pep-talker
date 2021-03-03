@@ -12,10 +12,10 @@ const Quote = ({ _id, text, author, setCurrentQuote, deleteQuote }) => {
   }
 
   return (
-    <li className={`collection-item ${styles.item}`} onClick={handleQuoteClick}>
+    <li className={`collection-item blue-grey darken-4 ${styles.item}`} onClick={handleQuoteClick}>
       <section className={`list-item-body`}>
-        <div className={`text ${styles.text}`}>{`${text}`}</div>
-        <div className={`author ${styles.author}`}>{`- ${author}`}</div>
+        <div className={`cyan-text text-lighten-5 ${styles.text}`}>{`${text}`}</div>
+        <div className={`cyan-text text-lighten-5 ${styles.author}`}>{`- ${author}`}</div>
           <button className={`secondary-content btn-floating btn-small red lighten-1 ${styles.delete}`} onClick={handleDelete}>
             <i className="material-icons">remove</i>
           </button>

@@ -14,19 +14,20 @@ const Form = ({ postQuote }) => {
   // TODO: limit chars
 
   return (
-    <div className={`container input-field ${styles.main}`}>
-      <h5 className='center-align'>Make a new pep-talk:</h5>
+    <div className={`container input-field indigo darken-4 z-depth-4 ${styles.main}`}>
+      <h5 className='center-align light-blue-text text-lighten-4'>Make a new pep-talk:</h5>
       <form onSubmit={handleSubmit}>
-        <label>Text:</label>
+        <label className={`purple-text text-lighten-3`}>Text:</label>
         <input 
-          className='input-field'
+          className='input-field purple-text text-lighten-5'
           type="text"
           value={text}
           onChange={(event) => setEntry(event.target.value)}>
         </input>
         {/* <textarea class='materialize-textarea'></textarea> */}
-        <label>Author:</label>
+        <label className={`purple-text text-lighten-3`}>Author:</label>
         <input
+          className='input-field purple-text text-lighten-5'
           type="text"
           value={author}
           onChange={(event) => setAuthor(event.target.value)}>

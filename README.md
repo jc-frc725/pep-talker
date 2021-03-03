@@ -4,9 +4,16 @@ Did someone mention a need for a rousing speech? Look no further. Browse a selec
 ## Usage
 ### Clicking on 'Speak to me' will read the current quote out loud. 
 
-<video width="320" height="240" controls>
-  <source src="images/peptalk_demo.mp4" type="video/mp4">
-</video>
+![peptalk_demo](https://user-images.githubusercontent.com/71245868/109759253-91bd8580-7ba1-11eb-8fea-fa2e590f7412.gif)
+
+
+### Click the 'I need something' button to select a random quote from the list.
+
+![3SxJZzTe9e](https://user-images.githubusercontent.com/71245868/109763849-91c08400-7ba7-11eb-9784-d1be887f3404.gif)
+
+### Write new quotes and select them from the list.
+
+![l0UwAfrKmX](https://user-images.githubusercontent.com/71245868/109752070-92035400-7b94-11eb-9678-f3e99fe1d35e.gif)
 
 ## Installation
 1. Install dependencies.

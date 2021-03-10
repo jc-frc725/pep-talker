@@ -16,7 +16,7 @@ const Quote = ({ _id, text, author, setCurrentQuote, deleteQuote }) => {
       <section className={`list-item-body`}>
         <div className={`cyan-text text-lighten-5 ${styles.text}`}>{`${text}`}</div>
         <div className={`cyan-text text-lighten-5 ${styles.author}`}>{`- ${author}`}</div>
-          <button className={`secondary-content btn-floating btn-small red lighten-1 ${styles.delete}`} onClick={handleDelete}>
+          <button className={`waves-effect waves-light secondary-content btn-floating btn-small red lighten-1 ${styles.delete}`} onClick={handleDelete}>
             <i className="material-icons">remove</i>
           </button>
       </section>

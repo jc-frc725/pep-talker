@@ -32,7 +32,7 @@ const Form = ({ postQuote }) => {
           value={author}
           onChange={(event) => setAuthor(event.target.value)}>
         </input>
-        <button className={`btn purple accent-4`} type='submit'>Submit</button>
+        <button className={`waves-effect waves-light btn purple accent-4`} type='submit'>Submit</button>
       </form>
     </div>
   )

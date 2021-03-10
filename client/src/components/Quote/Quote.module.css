@@ -10,6 +10,10 @@
   margin-left: 90%;
 }
 
+.delete:hover {
+  background-color: #161111;
+}
+
 .text {
   font-size: small;
 }

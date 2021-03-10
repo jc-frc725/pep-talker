@@ -14,8 +14,8 @@ const CurrentQuote = ({ current, readQuote, getQuote }) => {
         <h4 className={`right-align blue-text text-lighten-2  ${styles.author}`}> - {current.author}</h4>
       </div>
       <div className={`container ${styles.buttons}`}>
-        <a className={`btn-large pink darken-3 ${styles.round}`} onClick={handleReadQuote}>Speak to me.</a>
-        <a className={`btn-large pink darken-3 ${styles.round}`} onClick={getQuote}>I need something.</a>
+        <a className={`waves-effect waves-light btn-large pink darken-3 ${styles.round}`} onClick={handleReadQuote}>Speak to me.</a>
+        <a className={`waves-effect waves-light btn-large pink darken-3 ${styles.round}`} onClick={getQuote}>I need something.</a>
       </div>
     </div>
   )

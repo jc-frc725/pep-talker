@@ -1,6 +1,6 @@
 client/public/bundle.js
 client/public/speech
-
+client/public/materialize.css
 # Logs
 logs
 *.log

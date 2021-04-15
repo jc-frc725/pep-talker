@@ -7,9 +7,10 @@ const Search = ({ quotes, setCurrentQuote, deleteQuote }) => {
   const [filter, setFilter] = useState('');
 
   // search for quotes that match input from search bar
+  
 
   return (
-    <div className={`${styles.list} blue-grey darken-4 sidenav sidenav-fixed `}>
+    <div className={`${styles.list} blue-grey darken-4 sidenav sidenav-fixed`}>
       <h4 className="blue-grey darken-4 cyan-text text-lighten-2 center-align">Pep-talks:</h4>
       <input
         value={filter}

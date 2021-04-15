@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Form from '../Form';
-import QuoteList from '../QuoteList';
+import Search from '../Search';
 import CurrentQuote from '../CurrentQuote';
 import axios from 'axios';
 import styles from './App.module.css';
@@ -64,7 +64,7 @@ const App = (props) => {
       <CurrentQuote current={current} readQuote={readQuote} getQuote={getRandomQuote}/>
       <br></br>
       <Form postQuote={postNewQuote}/>
-      <QuoteList quotes={quotes} setCurrentQuote={setCurrentQuote} deleteQuote={deleteQuote}/>
+      <Search quotes={quotes} setCurrentQuote={setCurrentQuote} deleteQuote={deleteQuote}/>
     </div>
   );
 }

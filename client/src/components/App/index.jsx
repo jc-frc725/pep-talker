@@ -57,6 +57,20 @@ const App = (props) => {
     setCurrent({text, author});
   }
 
+  // search for quotes that match input from search bar
+  const searchQuote = (query) => {
+    // console.log(filter);
+    const toSearch = quotes;
+    const searchTerm = query.toLowerCase();
+    const searchedStuff = toSearch.filter((quote) => {
+      // const filter = searchQuery.toLowerCase();
+      return quote.text.includes(searchTerm);
+    })
+
+    console.log(searchedStuff);
+
+  }
+
   return (
     <div className='pep-talk-main'>
       <h1 className={`center-align light-blue-text text-lighten-3 ${styles.title}`}>Pep-talker</h1>
@@ -64,7 +78,7 @@ const App = (props) => {
       <CurrentQuote current={current} readQuote={readQuote} getQuote={getRandomQuote}/>
       <br></br>
       <Form postQuote={postNewQuote}/>
-      <Search quotes={quotes} setCurrentQuote={setCurrentQuote} deleteQuote={deleteQuote}/>
+      <Search quotes={quotes} deleteQuote={deleteQuote} setCurrentQuote={setCurrentQuote} searchQuote={searchQuote} />
     </div>
   );
 }

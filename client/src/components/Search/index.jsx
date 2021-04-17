@@ -3,11 +3,22 @@ import QuoteList from '../QuoteList';
 
 import styles from './Search.module.css';
 
-const Search = ({ quotes, setCurrentQuote, deleteQuote }) => {
-  const [filter, setFilter] = useState('');
+const Search = ({ quotes, deleteQuote, setCurrentQuote, searchQuote }) => {
+  const [query, setQuery] = useState('');
 
   // search for quotes that match input from search bar
-  
+  // const searchQuote = () => {
+  //   // console.log(filter);
+  //   const toSearch = quotes;
+  //   const filter = searchQuery.toLowerCase();
+  //   const searchedStuff = toSearch.filter(quote => {
+  //     // const filter = searchQuery.toLowerCase();
+  //     return quote.text.includes(filter);
+  //   })
+
+  //   console.log(searchedStuff);
+
+  // }
 
   return (
     <div className={`${styles.list} blue-grey darken-4 sidenav sidenav-fixed`}>
@@ -16,9 +27,9 @@ const Search = ({ quotes, setCurrentQuote, deleteQuote }) => {
         value={filter}
         className={`white center-align ${styles.search}`} 
         placeholder={'Search for a quote...'}
-        onChange={(event) => setFilter(event.target.value)}
+        onChange={(event) => setQuery(event.target.value)}
       />
-      <button className={`btn waves-effect waves-light`}>Search</button>
+      <button onClick={() => searchQuote(query)} className={`btn waves-effect waves-light`}>Search</button>
       <QuoteList quotes={quotes} setCurrentQuote={setCurrentQuote} deleteQuote={deleteQuote}/>
     </div>
   )

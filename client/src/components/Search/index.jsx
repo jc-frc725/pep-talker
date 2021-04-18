@@ -24,7 +24,7 @@ const Search = ({ quotes, deleteQuote, setCurrentQuote, searchQuote }) => {
     <div className={`${styles.list} blue-grey darken-4 sidenav sidenav-fixed`}>
       <h4 className="blue-grey darken-4 cyan-text text-lighten-2 center-align">Pep-talks:</h4>
       <input
-        value={filter}
+        value={query}
         className={`white center-align ${styles.search}`} 
         placeholder={'Search for a quote...'}
         onChange={(event) => setQuery(event.target.value)}

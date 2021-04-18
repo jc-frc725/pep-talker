@@ -10,6 +10,7 @@ import { TextToSpeech } from 'watson-speech';
 const App = (props) => {
   const [quotes, setQuotes] = useState([]);
   const [current, setCurrent] = useState({text: 'The hours of folly are measured by the clock; but of wisdom, no clock can measure.', author:'William Blake'});
+  const [searchResults, setResults] = useState([]);
 
   // TODO: use disclaimer on bottom of page/footer
 
@@ -64,7 +65,7 @@ const App = (props) => {
     const searchTerm = query.toLowerCase();
     const searchedStuff = toSearch.filter((quote) => {
       // const filter = searchQuery.toLowerCase();
-      return quote.text.includes(searchTerm);
+      return quote.text.toLowerCase().includes(searchTerm);
     })
 
     console.log(searchedStuff);

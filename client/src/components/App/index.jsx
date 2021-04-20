@@ -6,10 +6,12 @@ import axios from 'axios';
 import styles from './App.module.css';
 
 import { TextToSpeech } from 'watson-speech';
+import { get } from 'mongoose';
 
 const App = (props) => {
   const [quotes, setQuotes] = useState([]);
   const [current, setCurrent] = useState({text: 'The hours of folly are measured by the clock; but of wisdom, no clock can measure.', author:'William Blake'});
+  const [searchResults, setResults] = useState([]);
 
   // TODO: use disclaimer on bottom of page/footer
 
@@ -20,6 +22,8 @@ const App = (props) => {
   const getQuotes = () => {
     axios.get('/api/pep-talker')
       .then(({ data }) => setQuotes(data));
+    axios.get('/api/pep-talker')
+      .then(({ data }) => setResults(data));
   }
 
   // Request a token, then use returned audio
@@ -57,6 +61,22 @@ const App = (props) => {
     setCurrent({text, author});
   }
 
+  // // search for quotes that match input from search bar
+  const searchQuote = (query) => {
+    if (!query) {
+      setResults(quotes);
+    }
+
+    const toSearch = quotes;
+    const searchTerm = query.toLowerCase();
+    const searchedStuff = toSearch.filter((quote) => {
+      return quote.text.toLowerCase().includes(searchTerm);
+    })
+    // console.log(searchedStuff);
+    setResults(searchedStuff);
+
+  }
+
   return (
     <div className='pep-talk-main'>
       <h1 className={`center-align light-blue-text text-lighten-3 ${styles.title}`}>Pep-talker</h1>
@@ -64,7 +84,7 @@ const App = (props) => {
       <CurrentQuote current={current} readQuote={readQuote} getQuote={getRandomQuote}/>
       <br></br>
       <Form postQuote={postNewQuote}/>
-      <Search quotes={quotes} setCurrentQuote={setCurrentQuote} deleteQuote={deleteQuote}/>
+      <Search searchResults={searchResults} deleteQuote={deleteQuote} setCurrentQuote={setCurrentQuote} searchQuote={searchQuote} />
     </div>
   );
 }

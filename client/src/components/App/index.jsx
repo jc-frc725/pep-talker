@@ -6,6 +6,7 @@ import axios from 'axios';
 import styles from './App.module.css';
 
 import { TextToSpeech } from 'watson-speech';
+import { get } from 'mongoose';
 
 const App = (props) => {
   const [quotes, setQuotes] = useState([]);
@@ -21,6 +22,8 @@ const App = (props) => {
   const getQuotes = () => {
     axios.get('/api/pep-talker')
       .then(({ data }) => setQuotes(data));
+    axios.get('/api/pep-talker')
+      .then(({ data }) => setResults(data));
   }
 
   // Request a token, then use returned audio
@@ -58,17 +61,19 @@ const App = (props) => {
     setCurrent({text, author});
   }
 
-  // search for quotes that match input from search bar
+  // // search for quotes that match input from search bar
   const searchQuote = (query) => {
-    // console.log(filter);
+    if (!query) {
+      setResults(quotes);
+    }
+
     const toSearch = quotes;
     const searchTerm = query.toLowerCase();
     const searchedStuff = toSearch.filter((quote) => {
-      // const filter = searchQuery.toLowerCase();
       return quote.text.toLowerCase().includes(searchTerm);
     })
-
-    console.log(searchedStuff);
+    // console.log(searchedStuff);
+    setResults(searchedStuff);
 
   }
 
@@ -79,7 +84,7 @@ const App = (props) => {
       <CurrentQuote current={current} readQuote={readQuote} getQuote={getRandomQuote}/>
       <br></br>
       <Form postQuote={postNewQuote}/>
-      <Search quotes={quotes} deleteQuote={deleteQuote} setCurrentQuote={setCurrentQuote} searchQuote={searchQuote} />
+      <Search searchResults={searchResults} deleteQuote={deleteQuote} setCurrentQuote={setCurrentQuote} searchQuote={searchQuote} />
     </div>
   );
 }

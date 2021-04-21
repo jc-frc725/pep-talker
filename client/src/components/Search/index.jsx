@@ -3,7 +3,7 @@ import QuoteList from '../QuoteList';
 
 import styles from './Search.module.css';
 
-const Search = ({ searchResults, deleteQuote, setCurrentQuote, searchQuote}) => {
+const Search = ({ searchResults, deleteQuote, setCurrentQuote, searchQuote, resetSearch}) => {
   const [query, setQuery] = useState('');
 
   return (
@@ -16,7 +16,11 @@ const Search = ({ searchResults, deleteQuote, setCurrentQuote, searchQuote}) => 
         onChange={(event) => setQuery(event.target.value)}
       />
       <button onClick={() => searchQuote(query)} className={`btn waves-effect waves-light`}>Search</button>
-      <QuoteList quotes={searchResults} setCurrentQuote={setCurrentQuote} deleteQuote={deleteQuote}/>
+      <button onClick={() => resetSearch()} className={'btn waves-effect waves-light'}>Reset</button>
+      <QuoteList 
+        quotes={searchResults} 
+        setCurrentQuote={setCurrentQuote} 
+        deleteQuote={deleteQuote}/>
     </div>
   )
 }

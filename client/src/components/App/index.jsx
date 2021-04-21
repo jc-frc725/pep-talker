@@ -61,20 +61,21 @@ const App = (props) => {
     setCurrent({text, author});
   }
 
-  // // search for quotes that match input from search bar
+  // search for quotes that match input from search bar
   const searchQuote = (query) => {
     if (!query) {
       setResults(quotes);
     }
-
     const toSearch = quotes;
     const searchTerm = query.toLowerCase();
     const searchedStuff = toSearch.filter((quote) => {
       return quote.text.toLowerCase().includes(searchTerm);
     })
-    // console.log(searchedStuff);
     setResults(searchedStuff);
+  }
 
+  const resetSearch = () => {
+    setResults(quotes);
   }
 
   return (
@@ -84,7 +85,11 @@ const App = (props) => {
       <CurrentQuote current={current} readQuote={readQuote} getQuote={getRandomQuote}/>
       <br></br>
       <Form postQuote={postNewQuote}/>
-      <Search searchResults={searchResults} deleteQuote={deleteQuote} setCurrentQuote={setCurrentQuote} searchQuote={searchQuote} />
+      <Search searchResults={searchResults}
+        deleteQuote={deleteQuote}
+        setCurrentQuote={setCurrentQuote}
+        searchQuote={searchQuote} 
+        resetSearch={resetSearch}/>
     </div>
   );
 }

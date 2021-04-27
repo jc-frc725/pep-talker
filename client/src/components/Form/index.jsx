@@ -27,6 +27,7 @@ const Form = ({ postQuote }) => {
           className='input-field purple-text text-lighten-5'
           type="text"
           value={text}
+          placeholder={`Enter here!`}
           onChange={(event) => setEntry(event.target.value)}>
         </input>
         <label className={`purple-text text-lighten-3`}>Author:</label>
@@ -34,6 +35,7 @@ const Form = ({ postQuote }) => {
           className='input-field purple-text text-lighten-5'
           type="text"
           value={author}
+          placeholder={`Leave blank for 'Unknown'`}
           onChange={(event) => setAuthor(event.target.value)}>
         </input>
         <button className={`waves-effect waves-light btn purple accent-4`} type='submit'>Submit</button>

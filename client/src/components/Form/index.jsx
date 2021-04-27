@@ -6,7 +6,10 @@ const Form = ({ postQuote }) => {
   const [author, setAuthor] = useState('');
 
   const handleSubmit = (event) => {
-    postQuote(text, author);
+    if (text === '') {
+      alert('no text!');
+    }
+    // postQuote(text, author);
     event.preventDefault();
   }
   // TODO: modal confirmation for valid submission
@@ -24,7 +27,6 @@ const Form = ({ postQuote }) => {
           value={text}
           onChange={(event) => setEntry(event.target.value)}>
         </input>
-        {/* <textarea class='materialize-textarea'></textarea> */}
         <label className={`purple-text text-lighten-3`}>Author:</label>
         <input
           className='input-field purple-text text-lighten-5'

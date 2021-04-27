@@ -16,7 +16,7 @@ const QuoteList = ({ quotes, setCurrentQuote, deleteQuote }) => {
             key={idx}
             _id={quote._id}
             text={quote.text}
-            author={quote.author}
+            author={quote.author ? quote.author : 'Unknown'}
             setCurrentQuote={setCurrentQuote}
             deleteQuote={deleteQuote}
           />

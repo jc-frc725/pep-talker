@@ -7,9 +7,11 @@ const Form = ({ postQuote }) => {
 
   const handleSubmit = (event) => {
     if (text === '') {
-      alert('no text!');
+      alert('Please do not leave the text field empty.');
+    } else {
+      postQuote(text, author);
     }
-    // postQuote(text, author);
+    
     event.preventDefault();
   }
   // TODO: modal confirmation for valid submission

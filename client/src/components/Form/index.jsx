@@ -5,18 +5,25 @@ const Form = ({ postQuote }) => {
   const [text, setEntry] = useState('');
   const [author, setAuthor] = useState('');
 
+  const charCounter = () => {
+    if (text.length > 200) {
+      return <div className={`right red-text text-lighten-3`}>{`${text.length} / 200`}</div>
+    } else {
+      return <div className={`right grey-text text-lighten-3`}>{`${text.length} / 200`}</div>
+    }
+  }
+
   const handleSubmit = (event) => {
     if (text === '') {
       alert('Please do not leave the text field empty.');
-    } else {
+    } else if (text.length > 200) {
+      alert('Your quote is over the character limit!')
+    } else  {
       postQuote(text, author);
     }
     
     event.preventDefault();
   }
-  // TODO: modal confirmation for valid submission
-  // TODO: No empty fields
-  // TODO: limit chars
 
   return (
     <div className={`container input-field indigo darken-4 z-depth-4 ${styles.main}`}>
@@ -38,6 +45,7 @@ const Form = ({ postQuote }) => {
           placeholder={`Leave blank for 'Unknown'`}
           onChange={(event) => setAuthor(event.target.value)}>
         </input>
+        {text.length > 200 ? <div className={`right red-text text-lighten-3`}>{`${text.length} / 200`}</div> : <div className={`right grey-text text-lighten-3`}>{`${text.length} / 200`}</div>}
         <button className={`waves-effect waves-light btn purple accent-4`} type='submit'>Submit</button>
       </form>
     </div>

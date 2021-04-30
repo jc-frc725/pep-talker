@@ -5,14 +5,6 @@ const Form = ({ postQuote }) => {
   const [text, setEntry] = useState('');
   const [author, setAuthor] = useState('');
 
-  const charCounter = () => {
-    if (text.length > 200) {
-      return <div className={`right red-text text-lighten-3`}>{`${text.length} / 200`}</div>
-    } else {
-      return <div className={`right grey-text text-lighten-3`}>{`${text.length} / 200`}</div>
-    }
-  }
-
   const handleSubmit = (event) => {
     if (text === '') {
       alert('Please do not leave the text field empty.');
